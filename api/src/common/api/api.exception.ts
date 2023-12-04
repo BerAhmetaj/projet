@@ -1,5 +1,5 @@
 import {HttpException} from '@nestjs/common';
-import {ApiCodeResponse} from '@common/api-code.response';
+import {ApiCodeResponse} from '@common/api/api-code.response';
 export class ApiException extends HttpException{
     constructor(code:ApiCodeResponse, status:number) {
         super({
