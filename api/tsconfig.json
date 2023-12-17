@@ -12,7 +12,10 @@
     "baseUrl": "./src",
     "paths": {
       "@common/*": ["./common/*"],
-      "@security/*": ["./security/*"]
+      "@security/*": ["./security/*"],
+      "@api/*": ["./api/*"],
+      "@model/*": ["/model/*"]
+
     },
     "incremental": true,
     "skipLibCheck": true,
