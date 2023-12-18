@@ -9,6 +9,6 @@ export enum ApiCodeResponse {
     TOKEN_GEN_ERROR= 'api.security.error.gen-error',
     PAYLOAD_IS_NOT_VALID='api.security.error.payload-is-not-valid',
     PAYLOAD_PARAM_IS_MISSING='api.security.error.payload-is-missing',
-    COMMON_SUCCESS='api.security.error.',
+    COMMON_SUCCESS='SUCCESS',
 
 }

@@ -60,8 +60,7 @@ export class SecurityService {
             throw new UserAlreadyExistException();
         }
         try {
-            const encryptedPassword = (payload.facebookHash.length === 0 &&
-                payload.googleHash.length === 0) ? await encryptPassword(payload.password): "";
+            const encryptedPassword = await encryptPassword(payload.password);
             return this.repository.save(Builder<Credential>()
                 .username(payload.username)
                 .password(encryptedPassword)
