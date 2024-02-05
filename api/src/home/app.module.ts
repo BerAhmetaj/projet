@@ -6,11 +6,19 @@ import {configManager} from '@common/config/config.manager';
 import {SecurityModule} from '@security/security.module';
 import {APP_GUARD} from '@nestjs/core';
 import {JwtGuard} from '@security/jwt/jwt.guard';
+import {ProfilModule} from '../module/profil/profil.module';
+import {PublicationModule} from '../module/publication/publication.module';
+import {CommentaireModule} from '../module/commentaire/commentaire.module';
+import {LikeModule} from '../module/like/like.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(configManager.getTypeOrmConfig()),
-    SecurityModule],
+    SecurityModule,
+    ProfilModule,
+    PublicationModule,
+    CommentaireModule,
+    LikeModule],
   controllers: [AppController],
   providers: [AppService, {
     provide: APP_GUARD, useClass: JwtGuard
