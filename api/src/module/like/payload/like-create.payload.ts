@@ -2,6 +2,7 @@ import {ApiProperty} from "@nestjs/swagger";
 import {IsOptional, IsString, Length} from "class-validator";
 
 export class LikeCreatePayload {
+
     @ApiProperty()
     @IsOptional()
     @Length(1, 50)

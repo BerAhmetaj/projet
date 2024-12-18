@@ -11,8 +11,8 @@ import {LikeService} from "./service/like.service";
 import {Address} from '../Adresse.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Like,Credential, Token, Address])],
-    controllers: [LikeController, SecurityController],
-    providers: [LikeService,SecurityService, TokenService]
+    imports: [TypeOrmModule.forFeature([Like, Token, Credential])],
+    controllers: [LikeController],
+    providers: [LikeService, TokenService]
 })
 export class LikeModule {}

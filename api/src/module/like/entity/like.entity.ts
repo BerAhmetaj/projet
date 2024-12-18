@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, Index} from 'typeorm';
 import {BaseEntity} from "../../baseentity";
 import {Credential} from "@security/model";
 import {Publication} from "../../publication/entity/publication.entity";
@@ -6,19 +6,21 @@ import {Commentaire} from "../../commentaire/entity/commentaire.entity";
 
 
 @Entity()
+@Index(['credential_id', 'id_publication'], { unique: true })
+@Index(['credential_id', 'id_commentaire'], { unique: true })
 export class Like extends BaseEntity{
     @PrimaryGeneratedColumn()
-    id_like: number;
+    id_like: string;
 
-    @ManyToOne(() => Credential, {eager: false})
+    @ManyToOne(() => Credential, {eager: true})
     @JoinColumn({referencedColumnName: 'credential_id', name: 'credential_id'})
     credential_id: string;
 
-    @ManyToOne(() => Publication, {eager: false})
+    @ManyToOne(() => Publication, {eager: false, nullable: true})
     @JoinColumn({referencedColumnName: 'id_publication', name: 'id_publication'})
     id_publication: string;
 
-    @ManyToOne(() => Commentaire, {eager: false})
+    @ManyToOne(() => Commentaire, {eager: false, nullable: true})
     @JoinColumn({referencedColumnName: 'id_commentaire', name: 'id_commentaire'})
     id_commentaire: string;
 

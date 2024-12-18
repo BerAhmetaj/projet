@@ -2,7 +2,7 @@ import {Column, CreateDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn}
 import {ulid} from 'ulid';
 @Entity()
 export class Credential {
-    @PrimaryColumn('varchar', {length: 26, default: () => `'${ulid()}'`})
+    @PrimaryGeneratedColumn("uuid")
     credential_id: string;
     @Column({nullable: false, unique: true})
     username: string;
